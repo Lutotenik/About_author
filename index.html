@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About author</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Montserrat:wght@100;400&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet" />
+        <link href="css/common_style.css" rel="stylesheet" />
+        <link href="css/style_home.css" rel="stylesheet" />
+</head>
+
+<body>
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>-->
+
+    <script src="js/vue.js"></script>
+    
+    <div id="idBurgerMenu">
+        <burger-menu></burger-menu>
+    </div>
+
+    <div id="idSideBarMenu">
+        <sidebar-menu></sidebar-menu>
+    </div>
+
+    <div class="main-wrapper">
+        <main class="main">
+            <img class="my-photo" src="home_images/my_photo.jpg" alt="Моя фотография" />
+            <div class="main-block">
+                <p class="substrate">
+                    Sergey Ivanov
+                </p>
+                <h1 class="main-block__head">
+                    <span class="text">Hello! I'm</span> <br>
+                    Sergey Ivanov
+                    <span class="text_profession">A photographer.</span>
+                    I Capture Life
+                </h1>
+                <div class="description-block text text_description">
+                    <p>
+                        If you wants to leave a memory of a vacation for many years to show off to friends with beautiful vacation photos on Instagram, and just capture happy moments spent by the whole family.
+                    </p>
+                    <p>
+                        <span class="text_special">  I am will be happy</span>
+                        to take high-quality photos for you, which will remind you of a wonderful vacation at the Paradise Hotel.
+                    </p>
+                </div>
+                <p class="signature">
+                    Sergey Ivanov
+                </p>
+            </div>
+        </main>
+        <div id="idFooterContainer">
+            <footer-container></footer-container>
+        </div>
+    </div>
+    <script src="js/common_vue_template.js"></script>
+    <script src="js/burger.js"></script>
+</body>
+
+</html>

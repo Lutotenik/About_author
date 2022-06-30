@@ -1,0 +1,230 @@
+/*
+ВАЖНО(!): Свойства перечисляются по нормальному течению потока документа, начиная из верхнего левого угла и далее, по direct, вниз или вправо.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+СВОЙСТВА ГЛОБАЛЬНЫХ ЭЛЕМЕНТОВ + модификаторы + псевдоклассы/элементы
+(форматы текста, заголовков, ссылки, списки, кнопки и т.д.)
+*/
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    font: 400 13px/23px "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.link:hover {
+    color: #000000;
+}
+
+.text {
+    font: 23px/43px "Montserrat", sans-serif;
+    color: #bfbfbf;
+}
+
+.text_footer {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-transform: capitalize;
+}
+
+.text_footer_gray {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.text_footer_white {
+    color: #ffffff;
+}
+
+/*
+СВОЙСТВА ОСНОВНЫХ БЛОКОВ + зависимые элементы + псевдоклассы/элементы
+(main, header, footer, div, body, меню, заголовки т.д.)
+*/
+
+/*
+    MAIN-WRAPPER страницы My Services (GRID)
+*/
+
+.main-wrapper {
+    margin-left: 20%; /*422px;*/
+    display: grid;
+    height: 100%;
+    /*   grid-template: minmax(213px, auto) minmax(756px, auto) minmax(578px, 100%) / 100%; /* 1498px */
+    grid-template: repeat(3, auto) / 100%; /* 1498px */
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/*
+    MAIN страницы "MY Serveses"
+*/
+
+.main {
+    display: grid;
+    /*    grid-template: repeat(2, 1fr) / repeat(3, 1fr);*/
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    gap: 30px;
+    grid-auto-flow: row;
+    /*    justify-items и align-items по умолчанию stretch */
+    /*    justify-items: center;
+    align-items: center;*/
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 5% 9%; /* расчет в %% от 1498px*/
+}
+
+.my-service-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 0;
+}
+
+.my-service-type__icon {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    width: 60%;
+}
+
+.my-service-type__image {
+    /*    Через grid не получается отцентровать иконку.
+    Работает только конструкция через flex.*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    padding: 30%;
+    box-sizing: border-box;
+    background: rgb(245, 245, 245);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.service-image {
+    display: block;
+}
+
+.my-service-type__name {
+    display: block;
+    margin-top: 16px;
+    font: 600 20px/30px "Poppins", sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.my-service-type__description {
+    margin-top: 20px;
+    font: 500 15px/27px "Montserrat";
+    color: #999999;
+    overflow-y: hidden;
+}
+
+/*
+    АДАПТИВНАЯ ВЕРСТКА. МЕДИА-ЗАПРОСЫ @MEDIA
+*/
+
+@media screen and (max-width: 1651px) {
+    /* убираем пустой блок в footer из потока, чтобы освободить место для блока портфолио. А также добавляем внутренние отступы в сетке footer-grid*/
+
+    .footer-grid {
+        gap: 10%;
+    }
+
+    .empty-block {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 1205px) {
+    /* смещаем блок с контактами в футере в начало сетки*/
+
+    .contact-container {
+        justify-self: start;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    /* убираем боковое меню, добавляем верхнюю строчку с "гамбургером" */
+
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-menu-grid {
+        z-index: 9;
+        padding-top: 35px; /* в связке с высотой бургер-контейнера */ 
+        width: 30%;
+        background: rgb(230, 230, 230);
+        transform: translate(-100%);
+        transition: all 0.5s ease;
+    }
+
+    .burger-container {
+        position: sticky;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my-icon-wrapper {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-menu-grid {
+        grid-template: 149px 100px auto / auto;
+    }
+
+    .my-icon-wrapper {
+        width: 118px;
+        height: 118px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /*  Устанавливаем 100% от контейнеров с портфолио и контактными данными в футере из-за дефицита места на сверх-малых экранах. Корректируем схему расположения контактных данных - все в столбик. Всплывающее боковое меню делаем 50%*/
+
+    .main-menu-grid {
+        width: 50%;
+        grid-template: 130px 100px auto / auto;
+    }
+
+    .main {
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+    }
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+    }
+
+    .contact-details {
+        grid-template: repeat(6, auto) / 100%;
+        width: auto;
+    }
+
+    .link-figure {
+        display: block;
+    }
+
+    .contact-details__item {
+        width: 100%;
+    }
+}

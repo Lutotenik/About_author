@@ -1,0 +1,355 @@
+/*
+ВАЖНО(!): Свойства перечисляются по нормальному течению потока документа, начиная из верхнего левого угла и далее, по direct, вниз или вправо.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+СВОЙСТВА ГЛОБАЛЬНЫХ ЭЛЕМЕНТОВ + модификаторы + псевдоклассы/элементы
+(форматы текста, заголовков, ссылки, списки, кнопки и т.д.)
+*/
+
+.button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 215px;
+    height: 58px;
+    font: 400 15px/27px "Montserrat", sans-serif;
+    text-decoration: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    box-shadow: 5px 5px #b1b1b1;
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.button:hover::after {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+.button_accent {
+    background: #ccb78f;
+    color: #ffffff;
+}
+
+.button_accent::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccb78f;
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.button_accent:hover::after {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+.button_accent:active,
+.button_accent:active::after {
+    background: #cc880a;
+}
+
+.button-submit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.button__name-displayed {
+    z-index: 1;
+    display: inline-block;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 400 13px/23px "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.link:hover {
+    color: #000000;
+}
+
+.text {
+    font: 23px/43px "Montserrat", sans-serif;
+    color: #bfbfbf;
+}
+
+.text_footer {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-transform: capitalize;
+}
+
+.text_footer_gray {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.text_footer_white {
+    color: #ffffff;
+}
+
+.text_contact {
+    font-size: 15px;
+    line-height: 27px;
+    color: #999999;
+}
+
+/*
+СВОЙСТВА ОСНОВНЫХ БЛОКОВ + зависимые элементы + псевдоклассы/элементы
+(main, header, footer, div, body, меню, заголовки т.д.)
+*/
+
+body {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/*
+    MAIN-WRAPPER страниц
+*/
+
+.main-wrapper {
+    margin-left: 20%; /*Было - 422px; Работает в связке с шириной Главного вертикального меню*/
+    display: grid;
+    height: 100%;
+    /*    grid-template:
+        minmax(213px, auto) minmax(956px, auto) minmax(578px, auto) /
+        1498px; */
+    grid-template: repeat(3, auto) / 100%; /* 1498px */
+}
+
+/*
+    MAIN страницы Contact
+*/
+
+.main {
+    display: block;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 5% 10%;
+}
+
+/*
+    Контактные данные
+*/
+
+.contact-info-title {
+    font: 600 28px/42px "Poppins", sans-serif;
+    letter-spacing: 0em;
+    padding-bottom: 36px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.contact-info-list {
+    display: grid;
+    /*    grid-template: 145px / repeat(4, 255px);*/
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 30px;
+    grid-auto-flow: row;
+}
+
+.contact-info-list__item {
+    box-sizing: border-box;
+    padding: 24px;
+    background: #f8f9fa;
+}
+
+.contact-info-list__item > span,
+a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.contact-info-list__item:hover > a {
+    text-decoration: underline;
+}
+
+/*  Контейнер для форм обратной связи и Яндекс-Карты */
+
+.feedback-and-maps-container {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    gap: 40px;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+}
+
+/*
+    Форма обратной связи
+*/
+
+.input-form {
+    max-width: 560px;
+    box-sizing: border-box;
+    padding: 5%; /*48px;*/
+    background: #f8f9fa;
+}
+
+.input-form__item {
+    display: inline-block;
+    width: 100%; /*444px;*/
+    min-height: 52px;
+    padding-left: 5%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(206, 212, 218, 1);
+    cursor: pointer;
+}
+
+.input-form__item_textarea_size {
+    padding-top: 5%;
+    resize: none;
+    min-height: 168px;
+}
+
+/*
+    Блок для свойств интерактивной карты
+*/
+
+.map-block {
+    max-width: 560px;
+    box-sizing: border-box;
+    background: #f8f9fa;
+}
+
+/*
+    АДАПТИВНАЯ ВЕРСТКА. МЕДИА-ЗАПРОСЫ @MEDIA
+*/
+
+@media screen and (max-width: 1620px) {
+    /* убираем пустой блок в footer из потока, чтобы освободить место для блока портфолио. А также добавляем внутренние отступы в сетке footer-grid*/
+
+    .footer-grid {
+        gap: 10%;
+    }
+
+    .empty-block {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 1205px) {
+    /* смещаем блок с контактами в футере в начало сетки*/
+
+    .contact-container {
+        justify-self: start;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    /* Блок обратной связи с картами размещаем - в колонку на 100% ширины */
+    .feedback-and-maps-container {
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+        gap: 30px;
+    }
+
+    .input-form,
+    .map-block {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    /* убираем боковое меню, добавляем верхнюю строчку с "гамбургером". */
+
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-menu-grid {
+        z-index: 9;
+        padding-top: 35px; /* в связке с высотой бургер-контейнера */
+        width: 30%;
+        background: rgb(230, 230, 230);
+        transform: translate(-100%);
+        transition: all 0.5s ease;
+    }
+
+    .burger-container {
+        position: sticky;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my-icon-wrapper {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-menu-grid {
+        grid-template: 149px 100px auto / auto;
+    }
+
+    .my-icon-wrapper {
+        width: 118px;
+        height: 118px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /*  Устанавливаем 100% от контейнеров с портфолио и контактными данными в футере из-за дефицита места на сверх-малых экранах. Корректируем схему расположения контактных данных - все в столбик. Всплывающее боковое меню делаем 50%*/
+
+    .main-menu-grid {
+        width: 50%;
+        grid-template: 130px 100px auto / auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+    }
+
+    .contact-details {
+        grid-template: repeat(6, auto) / 100%;
+        width: auto;
+    }
+
+    .link-figure {
+        display: block;
+    }
+
+    .contact-details__item {
+        width: 100%;
+    }
+}

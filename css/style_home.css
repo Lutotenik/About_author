@@ -1,0 +1,298 @@
+/*
+ВАЖНО(!): Свойства перечисляются по нормальному течению потока документа, начиная из верхнего левого угла и далее, по direct, вниз или вправо.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+СВОЙСТВА ГЛОБАЛЬНЫХ ЭЛЕМЕНТОВ + модификаторы + псевдоклассы/элементы
+(форматы текста, заголовков, ссылки, списки, кнопки и т.д.)
+*/
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 400 13px/23px "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.link:hover {
+    color: #000000;
+}
+
+.text {
+    font: 23px/43px "Montserrat", sans-serif;
+    color: #bfbfbf;
+}
+
+.text_profession {
+    color: #ccb78f;
+}
+
+.text_description {
+    font-size: 18px;
+    line-height: 32px;
+    color: #999999;
+}
+
+.text_special {
+    text-decoration: underline;
+}
+
+.text_footer {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-transform: capitalize;
+}
+
+.text_footer_gray {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.text_footer_white {
+    color: #ffffff;
+}
+
+.signature {
+    font: 40px/60px "Herr Von Muellerhoff";
+    width: 181px;
+    height: 60px;
+    margin-top: 16px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.substrate {
+    position: absolute;
+    left: 86px;
+    top: 66px;
+    z-index: -1;
+    font: 700 68px/103px "Poppins", sans-serif;
+    letter-spacing: 1.71667px;
+    color: #ededed;
+}
+
+/*
+СВОЙСТВА ОСНОВНЫХ БЛОКОВ + зависимые элементы + псевдоклассы/элементы
+(main, header, footer, div, body, меню, заголовки т.д.)
+*/
+
+/*
+MAIN WRAPPER страницы Home
+*/
+
+.main-wrapper {
+    margin-left: 20%; /*422px;*/
+    display: grid;
+    height: 100%;
+    grid-template: repeat(2, auto) / 100%; /* 1498px */
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/*
+    MAIN страницы Home
+*/
+
+.main {
+    display: flex;
+    align-items: flex-start;
+}
+
+.my-photo {
+    width: 40%; /*600 px */
+    height: auto;
+    display: inline-block;
+    /*  высоту просто убираем, чтобы изображение не перекашивалось  height: 800px;*/
+}
+
+.main-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-left: 9%; /*138px;*/
+    padding-top: 8%; /*90px*/
+    width: 60%; /*900px */
+}
+
+.main-block__head {
+    width: 45%; /*400px;*/
+    font: bold 40px/60px "Poppins", sans-serif;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.description-block {
+    overflow-y: scroll;
+    width: 73%; /*654px*/
+    height: 12em;
+    margin-top: 20px;
+}
+
+.text_profession {
+    color: #ccb78f;
+}
+
+.text_description {
+    font-size: 18px;
+    line-height: 32px;
+    color: #999999;
+}
+
+.text_special {
+    text-decoration: underline;
+}
+
+/*
+    АДАПТИВНАЯ ВЕРСТКА. МЕДИА-ЗАПРОСЫ @MEDIA
+*/
+
+@media screen and (max-width: 1860px) {
+    /* ввиду уменьшения главного фото и появлением ниждего пробела, изменяем долю блока с описанием и главного фото в main-block = 50/50 */
+
+    .my-photo {
+        width: 50%;
+    }
+
+    .main-block {
+        width: 50%;
+    }
+
+    .main-block__head {
+        width: 80%;
+    }
+    .description-block {
+        width: 80%;
+        height: 15em;
+    }
+}
+
+@media screen and (max-width: 1620px) {
+    /* убираем пустой блок в footer из потока, чтобы освободить место для блока портфолио. А также добавляем внутренние отступы в сетке footer-grid*/
+
+    .footer-grid {
+        gap: 10%;
+    }
+
+    .empty-block {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    /* смена схемы у main на вертикальное размещение элементов*/
+
+    .main {
+        flex-direction: column;
+    }
+
+    .my-photo {
+        width: 100%;
+    }
+
+    .main-block {
+        padding-left: 4%;
+        padding-top: 4%;
+        width: 100%;
+    }
+
+    .description-block {
+        width: 95%;
+    }
+
+    .substrate {
+        left: 5%;
+        top: 3%;
+    }
+}
+
+@media screen and (max-width: 1205px) {
+    /* смещаем блок с контактами в футере в начало сетки*/
+
+    .contact-container {
+        justify-self: start;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    /* убираем боковое меню, добавляем верхнюю строчку с "гамбургером" */
+
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-menu-grid {
+        z-index: 9;
+        padding-top: 35px; /* в связке с высотой бургер-контейнера */
+        width: 30%;
+        background: rgb(230, 230, 230);
+        transform: translate(-100%);
+        transition: all 0.5s ease;
+    }
+
+    .burger-container {
+        position: sticky;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my-icon-wrapper {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-menu-grid {
+        grid-template: 149px 100px auto / auto;
+    }
+
+    .my-icon-wrapper {
+        width: 118px;
+        height: 118px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /*  Устанавливаем 100% от контейнеров с портфолио и контактными данными в футере из-за дефицита места на сверх-малых экранах. Корректируем схему расположения контактных данных - все в столбик. Всплывающее боковое меню делаем 50%*/
+
+    .main-menu-grid {
+        width: 50%;
+        grid-template: 130px 100px auto / auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+    }
+
+    .contact-details {
+        grid-template: repeat(6, auto) / 100%;
+        width: auto;
+    }
+
+    .link-figure {
+        display: block;
+    }
+
+    .contact-details__item {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /* убираем подложку, т.к. не помещается на сверх-малых экранах */
+
+    .substrate {
+        display: none;
+    }
+}

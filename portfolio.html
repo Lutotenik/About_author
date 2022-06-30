@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio + JS & Popup & Slider</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Montserrat:wght@100;400&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="css/common_style.css" rel="stylesheet" />
+    <link href="css/style_port.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Popup, закрывает весь экран при активации-->
+    <div class="overlay fade"></div>
+    <div class="popup fade">
+        <button class="close-button"></button>
+        <div class="slider-window">
+            <div class="button-slider button-prev fade"></div>
+            <img class="slide-show" src="#" alt="Pig" />
+            <div class="button-slider button-next fade"></div>
+        </div>
+    </div>
+
+    <!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>-->
+
+    <script src="js/vue.js"></script>
+
+    <div id="idBurgerMenu">
+        <burger-menu></burger-menu>
+    </div>
+
+    <div id="idSideBarMenu">
+        <sidebar-menu></sidebar-menu>
+    </div>
+
+    <div class="main-wrapper">
+        <header class="header">
+            <nav class="nav-top-bar">
+                <a href="index.html" class="link link_subline"> home </a>
+                <a href="#" class="link link_subline"> collection </a>
+            </nav>
+            <h1 class="header__title">
+                My Portfolio
+            </h1>
+        </header>
+        <main class="main">
+            <!-- Блок с элементами портфолио-->
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-1.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 01
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-2.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 02
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-3.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 03
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-4.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 04
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-5.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 05
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+            <div class="my-portfolio-item">
+                <img class="my-portfolio-image" src="port_images/photo-6.png" alt="Pig" />
+                <div class="my-portfolio-content">
+                    <h3 class="my-portfolio-content__name">
+                        Photo 06
+                    </h3>
+                    <p class="my-portfolio-content__description">
+                        MODEL
+                    </p>
+                    <a href="#" class="link my-portfolio-content__link"> </a>
+                </div>
+            </div>
+        </main>
+        <div id="idFooterContainer">
+            <footer-container></footer-container>
+        </div>
+    </div>
+    <script src="js/common_vue_template.js"></script>
+    <script src="js/port_slider&popup.js"></script>
+    <script src="js/burger.js"></script>
+</body>
+
+</html>

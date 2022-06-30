@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact&Yandex Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Montserrat:wght@100;400&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="css/common_style.css" rel="stylesheet" />
+    <link href="css/style_cont.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>-->
+
+    <script src="js/vue.js"></script>
+
+    <div id="idBurgerMenu">
+        <burger-menu></burger-menu>
+    </div>
+
+    <div id="idSideBarMenu">
+        <sidebar-menu></sidebar-menu>
+    </div>
+
+    <div class="main-wrapper">
+        <header class="header">
+            <nav class="nav-top-bar">
+                <a href="index.html" class="link link_subline"> home </a>
+                <a href="#" class="link link_subline"> contact </a>
+            </nav>
+            <h1 class="header__title">
+                Contact
+            </h1>
+        </header>
+        <main class="main">
+            <h2 class="contact-info-title">
+                Contact Information
+            </h2>
+            <div class="contact-info-list">
+                <div class="contact-info-list__item text text_contact">
+                    Address: 203 Cheсhova St., Moscow, RUSSIA
+                </div>
+                <div class="contact-info-list__item text text_contact">
+                    Phone:&nbsp;
+                    <span> + 1235 2355 98</span>
+                </div>
+                <div class="contact-info-list__item text text_contact">
+                    Email:&nbsp;
+                    <span> info@yourdomain.com</span>
+                </div>
+                <div class="contact-info-list__item text text_contact">
+                    Website:&nbsp;
+                    <a href="https://www.institutps.ru/"> https://www.institutps.ru/</a>
+                </div>
+            </div>
+            <div class="feedback-and-maps-container">
+                <form class="input-form" name="feedback" method="get">
+                    <input class="input-form__item text text_contact" type="text" name="name" placeholder="Your Name"
+                        required>
+                    <input class="input-form__item text text_contact" type="email" name="email" placeholder="Your Email"
+                        required>
+                    <input class="input-form__item text text_contact" type="text" name="subject" placeholder="Subject"
+                        required>
+                    <textarea class="input-form__item input-form__item_textarea_size text text_contact" name="message"
+                        rows="10" maxlength="200" placeholder="Message" required></textarea>
+                    <div class="button button_accent">
+                        <input class="button-submit" type="submit" name="button-submit" value="">
+                        <span class="button__name-displayed">Send&nbsp;Message</span>
+                    </div>
+                </form>
+                <!-- Блок для вставки интерактивной карты -->
+                <div class="map-block">
+                    <script type="text/javascript" charset="utf-8" async
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A55fd3a3e02a2cf5a4b4de9115c6286cc670df1569e9249c7e46fe2cebab21c67&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+        </main>
+        <div id="idFooterContainer">
+            <footer-container></footer-container>
+        </div>
+    </div>
+    <script src="js/common_vue_template.js"></script>
+    <script src="js/burger.js"></script>
+</body>
+
+</html>
