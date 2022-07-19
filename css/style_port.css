@@ -287,6 +287,12 @@
         width: 118px;
         height: 118px;
     }
+
+    .main {
+        grid-template-columns: repeat(auto-fit, 100%);
+        padding: 3%;
+    }
+
 }
 
 @media screen and (max-width: 400px) {
@@ -295,10 +301,6 @@
     .main-menu-grid {
         width: 50%;
         grid-template: 130px 100px auto / auto;
-    }
-
-    .main {
-        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
     }
 
     .footer-grid {
